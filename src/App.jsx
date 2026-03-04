@@ -1,4 +1,5 @@
-import Flascards from "./components/Flascards";
+import { useState } from "react";
+import Cards from "./components/Cards";
 
 const flashcards = [
   {
@@ -75,7 +76,25 @@ const flashcards = [
 ];
 
 const App = () => {
-  return <Flascards flashcards={flashcards} />;
+  const [index, setIndex] = useState(0);
+
+  const next = () => {
+    setIndex((i) => (i + 1) % flashcards.length);
+  };
+
+  const prev = () => {
+    setIndex((i) => (i - 1 + flashcards.length) % flashcards.length);
+  };
+
+  return (
+    <Cards
+      card={flashcards[index]}
+      onNext={next}
+      onPrev={prev}
+      index={index}
+      total={flashcards.length}
+    />
+  );
 };
 
 export default App;
