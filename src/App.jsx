@@ -1,3 +1,5 @@
+import Flascards from "./components/Flascards";
+
 const flashcards = [
   {
     id: 1,
@@ -73,7 +75,7 @@ const flashcards = [
 ];
 
 const App = () => {
-  return <div>App</div>;
+  return <Flascards flashcards={flashcards} />;
 };
 
 export default App;
