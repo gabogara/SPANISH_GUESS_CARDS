@@ -8,10 +8,15 @@ const Cards = ({
   index,
   total,
 }) => {
+  const formatWord = (word) => {
+    return word.replace("-", " ").replace(/^\w/, (c) => c.toUpperCase());
+  };
   return (
     <div className="card-wrapper">
-      <p>Category: {card.category}</p>
-      <p>Difficulty: {card.difficulty} </p>
+      <p>Category: {formatWord(card.category)}</p>
+      <p className={`difficulty ${card.difficulty}`}>
+        Difficulty: {formatWord(card.difficulty)}
+      </p>
       <span>
         {index + 1} / {total}
       </span>
