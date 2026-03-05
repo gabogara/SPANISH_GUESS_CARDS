@@ -51,6 +51,20 @@
   flex-direction: column;
 }
 
+.face.front.Food {
+  background: yellow;
+  color: black;
+}
+.face.front.Daily.Life {
+  background: green;
+  color: black;
+}
+
+.face.front.Travel{
+  background: white;
+  color: black;
+}
+
 .face.back {
   background: #2d1b00;
   color: white;

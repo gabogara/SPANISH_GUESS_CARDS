@@ -1,4 +1,4 @@
-const Flascards = ({
+const Cards = ({
   card,
   flipped,
   onRandom,
@@ -17,7 +17,7 @@ const Flascards = ({
       </span>
       <div className="scene" onClick={onFlip}>
         <div className={`inner ${flipped ? "flipped" : ""}`}>
-          <div className="face front">
+          <div className={`face front ${card.category}`}>
             <img
               className="flash-img"
               src={card.image}
@@ -40,4 +40,4 @@ const Flascards = ({
   );
 };
 
-export default Flascards;
+export default Cards;
