@@ -1,81 +1,8 @@
 import { useState } from "react";
+import { FLASHCARDS } from "./data/flashcards";
 import Cards from "./components/Cards";
 
 import "./App.css";
-
-const flashcards = [
-  {
-    id: 1,
-    front: "Apple",
-    back: "Manzana",
-    category: "Food",
-    difficulty: "easy",
-  },
-  {
-    id: 2,
-    front: "Bread",
-    back: "Pan",
-    category: "Food",
-    difficulty: "easy",
-  },
-  {
-    id: 3,
-    front: "Strawberry",
-    back: "Fresa",
-    category: "Food",
-    difficulty: "medium",
-  },
-  {
-    id: 4,
-    front: "I’m hungry.",
-    back: "Tengo hambre.",
-    category: "Food",
-    difficulty: "easy",
-  },
-  {
-    id: 5,
-    front: "Could I have the menu, please?",
-    back: "¿Me puede traer el menú, por favor?",
-    category: "Food",
-    difficulty: "medium",
-  },
-
-  {
-    id: 6,
-    front: "Airport",
-    back: "Aeropuerto",
-    category: "Travel",
-    difficulty: "easy",
-  },
-  {
-    id: 7,
-    front: "Ticket",
-    back: "Boleto / billete",
-    category: "Travel",
-    difficulty: "easy",
-  },
-  {
-    id: 8,
-    front: "Where is the bathroom?",
-    back: "¿Dónde está el baño?",
-    category: "Travel",
-    difficulty: "easy",
-  },
-  {
-    id: 9,
-    front: "I’m lost.",
-    back: "Estoy perdido(a).",
-    category: "Travel",
-    difficulty: "easy",
-  },
-  {
-    id: 10,
-    front: "Could you show me on the map?",
-    back: "¿Podrías mostrármelo en el mapa?",
-    category: "Travel",
-    difficulty: "medium",
-  },
-];
 
 const App = () => {
   const [index, setIndex] = useState(0);
@@ -83,12 +10,12 @@ const App = () => {
 
   const next = () => {
     setFlipped(false);
-    setIndex((index) => (index + 1) % flashcards.length);
+    setIndex((index) => (index + 1) % FLASHCARDS.length);
   };
 
   const prev = () => {
     setFlipped(false);
-    setIndex((index) => (index - 1 + flashcards.length) % flashcards.length);
+    setIndex((index) => (index - 1 + FLASHCARDS.length) % FLASHCARDS.length);
   };
 
   const flip = () => {
@@ -99,7 +26,7 @@ const App = () => {
     setFlipped(false);
     let newIndex;
     do {
-      newIndex = Math.floor(Math.random() * flashcards.length);
+      newIndex = Math.floor(Math.random() * FLASHCARDS.length);
     } while (newIndex === index);
     setIndex(newIndex);
   };
@@ -109,14 +36,14 @@ const App = () => {
       <h1 className="main-title">FlashCards</h1>
       <h3>Build your vocabulary one flip at a time.</h3>
       <Cards
-        card={flashcards[index]}
+        card={FLASHCARDS[index]}
         onNext={next}
         onPrev={prev}
         onRandom={random}
         index={index}
         onFlip={flip}
         flipped={flipped}
-        total={flashcards.length}
+        total={FLASHCARDS.length}
       />
     </div>
   );

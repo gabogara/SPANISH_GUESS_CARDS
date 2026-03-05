@@ -18,6 +18,11 @@ const Flascards = ({
       <div className="scene" onClick={onFlip}>
         <div className={`inner ${flipped ? "flipped" : ""}`}>
           <div className="face front">
+            <img
+              className="flash-img"
+              src={card.image}
+              alt={`image for question ${index}`}
+            />
             <p>{card.front}</p>
           </div>
 
