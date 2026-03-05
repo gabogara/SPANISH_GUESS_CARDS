@@ -98,6 +98,7 @@ const App = () => {
   return (
     <div className="page">
       <h1 className="main-title">FlashCards</h1>
+      <h3>Build your vocabulary one flip at a time.</h3>
       <Cards
         card={flashcards[index]}
         onNext={next}
