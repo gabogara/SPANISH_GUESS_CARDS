@@ -97,7 +97,7 @@ const App = () => {
 
   return (
     <div className="page">
-      <h1 className="main-title">FlasCards</h1>
+      <h1 className="main-title">FlashCards</h1>
       <Cards
         card={flashcards[index]}
         onNext={next}
