@@ -1,20 +1,27 @@
-
-const Flascards = ({ card, onNext, onPrev , index, total }) => {
+const Flascards = ({ card, flipped, onNext, onPrev, onFlip, index, total }) => {
   return (
-    <>
-      <div>
-        <h1>FlasCards</h1>
-        <h3>
-          {index + 1} / {total}
-        </h3>
-        <p>{card.front}</p>
-        {/* <p>{card.category}</p> */}
+    <div className="card-wrapper">
+      <p>Category: {card.category}</p>
+      <div className="scene" onClick={onFlip}>
+        <div className={`inner ${flipped ? "flipped" : ""}`}>
+          <div className="face front">
+            <p>{card.front}</p>
+          </div>
+
+          <div className="face back">
+            <p>{card.back}</p>
+          </div>
+        </div>
       </div>
-      <div>
+
+      <div className="nav">
         <button onClick={onPrev}> Previous</button>
+        <span>
+          {index + 1} / {total}
+        </span>
         <button onClick={onNext}>Next</button>
       </div>
-    </>
+    </div>
   );
 };
 

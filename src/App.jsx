@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Cards from "./components/Cards";
 
+import "./App.css";
+
 const flashcards = [
   {
     id: 1,
@@ -77,23 +79,35 @@ const flashcards = [
 
 const App = () => {
   const [index, setIndex] = useState(0);
+  const [flipped, setFlipped] = useState(false);
 
   const next = () => {
-    setIndex((i) => (i + 1) % flashcards.length);
+    setFlipped(false);
+    setIndex((index) => (index + 1) % flashcards.length);
   };
 
   const prev = () => {
+    setFlipped(false);
     setIndex((i) => (i - 1 + flashcards.length) % flashcards.length);
   };
 
+  const flip = () => {
+    setFlipped(!flipped);
+  };
+
   return (
-    <Cards
-      card={flashcards[index]}
-      onNext={next}
-      onPrev={prev}
-      index={index}
-      total={flashcards.length}
-    />
+    <div className="page">
+      <h1 className="main-title">FlasCards</h1>
+      <Cards
+        card={flashcards[index]}
+        onNext={next}
+        onPrev={prev}
+        index={index}
+        onFlip={flip}
+        flipped={flipped}
+        total={flashcards.length}
+      />
+    </div>
   );
 };
 
