@@ -1,8 +1,20 @@
-const Flascards = ({ card, flipped, onNext, onPrev, onFlip, index, total }) => {
+const Flascards = ({
+  card,
+  flipped,
+  onRandom,
+  onNext,
+  onPrev,
+  onFlip,
+  index,
+  total,
+}) => {
   return (
     <div className="card-wrapper">
       <p>Category: {card.category}</p>
       <p>Difficulty: {card.difficulty} </p>
+      <span>
+        {index + 1} / {total}
+      </span>
       <div className="scene" onClick={onFlip}>
         <div className={`inner ${flipped ? "flipped" : ""}`}>
           <div className="face front">
@@ -16,9 +28,7 @@ const Flascards = ({ card, flipped, onNext, onPrev, onFlip, index, total }) => {
       </div>
       <div className="nav">
         <button onClick={onPrev}> Previous</button>
-        <span>
-          {index + 1} / {total}
-        </span>
+        <button onClick={onRandom}>Random</button>
         <button onClick={onNext}>Next</button>
       </div>
     </div>

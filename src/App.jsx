@@ -88,11 +88,20 @@ const App = () => {
 
   const prev = () => {
     setFlipped(false);
-    setIndex((i) => (i - 1 + flashcards.length) % flashcards.length);
+    setIndex((index) => (index - 1 + flashcards.length) % flashcards.length);
   };
 
   const flip = () => {
     setFlipped(!flipped);
+  };
+
+  const random = () => {
+    setFlipped(false);
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * flashcards.length);
+    } while (newIndex === index);
+    setIndex(newIndex);
   };
 
   return (
@@ -103,6 +112,7 @@ const App = () => {
         card={flashcards[index]}
         onNext={next}
         onPrev={prev}
+        onRandom={random}
         index={index}
         onFlip={flip}
         flipped={flipped}
