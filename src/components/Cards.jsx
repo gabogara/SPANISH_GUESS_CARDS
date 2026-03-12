@@ -28,11 +28,11 @@ const Cards = ({
               src={card.image}
               alt={`image for question ${index}`}
             />
-            <p>{card.front}</p>
+            <p>{card.english}</p>
           </div>
 
           <div className="face back">
-            <p>{card.back}</p>
+            <p>{card.answer}</p>
           </div>
         </div>
       </div>
