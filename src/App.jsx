@@ -7,14 +7,18 @@ import "./App.css";
 const App = () => {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [guess, setGuess] = useState("");
+  const [guessStatus, setGuessStatus] = useState(null);
 
   const next = () => {
     setFlipped(false);
+    setGuess("");
     setIndex((index) => (index + 1) % FLASHCARDS.length);
   };
 
   const prev = () => {
     setFlipped(false);
+    setGuess("");
     setIndex((index) => (index - 1 + FLASHCARDS.length) % FLASHCARDS.length);
   };
 
@@ -24,6 +28,7 @@ const App = () => {
 
   const random = () => {
     setFlipped(false);
+    setGuess("");
     let newIndex;
     do {
       newIndex = Math.floor(Math.random() * FLASHCARDS.length);
@@ -36,6 +41,9 @@ const App = () => {
       <h1 className="main-title">FlashCards</h1>
       <h3>Build your vocabulary one flip at a time.</h3>
       <Cards
+        guess={guess}
+        setGuess={setGuess}
+        guessStatus={guessStatus}
         card={FLASHCARDS[index]}
         onNext={next}
         onPrev={prev}

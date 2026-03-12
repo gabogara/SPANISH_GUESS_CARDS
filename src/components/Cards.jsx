@@ -1,5 +1,8 @@
 const Cards = ({
   card,
+  guess,
+  setGuess,
+  guessStatus,
   flipped,
   onRandom,
   onNext,
@@ -10,6 +13,14 @@ const Cards = ({
 }) => {
   const formatWord = (word) => {
     return word.replace("-", " ").replace(/^\w/, (c) => c.toUpperCase());
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Guess send");
+  };
+  const onhandleChange = (evt) => {
+    setGuess(evt.target.value);
   };
   return (
     <div className="card-wrapper">
@@ -35,6 +46,27 @@ const Cards = ({
             <p>{card.answer}</p>
           </div>
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="guess-input">Your answer:</label>
+        <form onSubmit={handleSubmit}>
+          <input
+            id="guess-input"
+            type="text"
+            value={guess}
+            placeholder="Type your guess..."
+            onChange={onhandleChange}
+            disabled={guessStatus === "correct"}
+          />
+          <button disabled={guessStatus === "correct"}>Check</button>
+        </form>
+        {guessStatus === "correct" && (
+          <p className="feedback correct"> Correct!</p>
+        )}
+        {guessStatus === "incorrect" && (
+          <p className="feedback incorrect"> Not quite, try again!</p>
+        )}
       </div>
       <div className="nav">
         <button onClick={onPrev}> Previous</button>
