@@ -1,11 +1,11 @@
 const Cards = ({
   card,
   guess,
-  setGuess,
   guessStatus,
-  setGuessStatus,
   flipped,
   onRandom,
+  handleSubmit,
+  onhandleChange,
   onNext,
   onPrev,
   onFlip,
@@ -14,18 +14,6 @@ const Cards = ({
 }) => {
   const formatWord = (word) => {
     return word.replace("-", " ").replace(/^\w/, (c) => c.toUpperCase());
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!guess.trim()) return;
-    const correct =
-      guess.trim().toLowerCase() === card.answer.trim().toLowerCase();
-    setGuessStatus(correct ? "correct" : "incorrect");
-    setGuess("");
-  };
-  const onhandleChange = (evt) => {
-    setGuess(evt.target.value);
   };
 
   return (

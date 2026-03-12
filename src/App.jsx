@@ -10,6 +10,18 @@ const App = () => {
   const [guess, setGuess] = useState("");
   const [guessStatus, setGuessStatus] = useState(null);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!guess.trim()) return;
+    const correct =
+      guess.trim().toLowerCase() === FLASHCARDS[index].answer.trim().toLowerCase();
+    setGuessStatus(correct ? "correct" : "incorrect");
+    setGuess("");
+  };
+  const onhandleChange = (evt) => {
+    setGuess(evt.target.value);
+  };
+
   const next = () => {
     setFlipped(false);
     setGuess("");
@@ -47,6 +59,8 @@ const App = () => {
         setGuess={setGuess}
         guessStatus={guessStatus}
         setGuessStatus={setGuessStatus}
+        onhandleChange={onhandleChange}
+        handleSubmit={handleSubmit}
         card={FLASHCARDS[index]}
         onNext={next}
         onPrev={prev}
