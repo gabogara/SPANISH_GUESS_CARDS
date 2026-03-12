@@ -13,12 +13,14 @@ const App = () => {
   const next = () => {
     setFlipped(false);
     setGuess("");
+    setGuessStatus(null);
     setIndex((index) => (index + 1) % FLASHCARDS.length);
   };
 
   const prev = () => {
     setFlipped(false);
     setGuess("");
+    setGuessStatus(null);
     setIndex((index) => (index - 1 + FLASHCARDS.length) % FLASHCARDS.length);
   };
 
@@ -44,6 +46,7 @@ const App = () => {
         guess={guess}
         setGuess={setGuess}
         guessStatus={guessStatus}
+        setGuessStatus={setGuessStatus}
         card={FLASHCARDS[index]}
         onNext={next}
         onPrev={prev}

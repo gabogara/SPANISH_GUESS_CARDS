@@ -3,6 +3,7 @@ const Cards = ({
   guess,
   setGuess,
   guessStatus,
+  setGuessStatus,
   flipped,
   onRandom,
   onNext,
@@ -17,11 +18,16 @@ const Cards = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Guess send");
+    if (!guess.trim()) return;
+    const correct =
+      guess.trim().toLowerCase() === card.answer.trim().toLowerCase();
+    setGuessStatus(correct ? "correct" : "incorrect");
+    setGuess("");
   };
   const onhandleChange = (evt) => {
     setGuess(evt.target.value);
   };
+
   return (
     <div className="card-wrapper">
       <p>Category: {formatWord(card.category)}</p>
