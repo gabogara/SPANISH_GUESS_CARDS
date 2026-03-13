@@ -16,7 +16,7 @@ const App = () => {
 
   const deck = isShuffled ? shuffledDeck : FLASHCARDS;
   const isLast = index === deck.length - 1;
-  const isIni = index === 0;
+  const isFirst = index === 0;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -98,7 +98,7 @@ const App = () => {
         flipped={flipped}
         total={deck.length}
         isLast={isLast}
-        isIni={isIni}
+        isFirst={isFirst}
         shuffleArray={shuffleArray}
         counter={counter}
         max={max}

@@ -11,7 +11,7 @@ const Cards = ({
   index,
   total,
   isLast,
-  isIni,
+  isFirst,
   shuffleArray,
   counter,
   max,
@@ -70,7 +70,7 @@ const Cards = ({
         )}
       </div>
       <div className="nav">
-        <button onClick={onPrev} disabled={isIni}>
+        <button onClick={onPrev} disabled={isFirst}>
           Previous
         </button>
         <button onClick={onNext} disabled={isLast}>
