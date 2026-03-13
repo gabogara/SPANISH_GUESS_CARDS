@@ -15,6 +15,10 @@ const Cards = ({
   shuffleArray,
   counter,
   max,
+  onShowHint,
+  onShowClue,
+  showHint,
+  showClue,
 }) => {
   const formatWord = (word) => {
     return word.replace("-", " ").replace(/^\w/, (c) => c.toUpperCase());
@@ -22,7 +26,7 @@ const Cards = ({
 
   return (
     <div className="card-wrapper">
-      <p>
+      <p className="description">
         Current Streak: {counter}
         {max > 0 && <span> Longest Streak: {max}</span>}
       </p>
@@ -50,6 +54,8 @@ const Cards = ({
         </div>
       </div>
       <div className="guess-section">
+        {showHint && <p className="hint">💡 {card.hint}</p>}
+        {showClue && <p className="clue">🔍 {card.clue}</p>}
         <label htmlFor="guess-input">Your answer:</label>
         <form className="guess-form" onSubmit={handleSubmit}>
           <input
@@ -77,6 +83,14 @@ const Cards = ({
           Next
         </button>
         <button onClick={shuffleArray}>Shuffle Cards</button>
+      </div>
+      <div className="nav">
+        <button onClick={onShowHint} disabled={showHint}>
+          {showHint ? "Hint shown" : "Show Hint"}
+        </button>
+        <button onClick={onShowClue} disabled={showClue}>
+          {showClue ? "Clue shown" : "Show Clue"}
+        </button>
       </div>
     </div>
   );

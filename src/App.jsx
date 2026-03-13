@@ -13,6 +13,8 @@ const App = () => {
   const [guessStatus, setGuessStatus] = useState(null);
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffledDeck, setShuffledDeck] = useState([]);
+  const [showHint, setShowHint] = useState(false);
+  const [showClue, setShowClue] = useState(false);
 
   const deck = isShuffled ? shuffledDeck : FLASHCARDS;
   const isLast = index === deck.length - 1;
@@ -39,6 +41,13 @@ const App = () => {
     }
   };
 
+  const onShowClue = () => {
+    setShowClue(true);
+  };
+
+  const onShowHint = () => {
+    setShowHint(true);
+  };
   const onhandleChange = (evt) => {
     setGuess(evt.target.value);
   };
@@ -48,6 +57,8 @@ const App = () => {
     setGuess("");
     setGuessStatus(null);
     setIndex((index) => index + 1);
+    setShowHint(false);
+    setShowClue(false);
   };
 
   const prev = () => {
@@ -55,6 +66,8 @@ const App = () => {
     setGuess("");
     setGuessStatus(null);
     setIndex((index) => index - 1);
+    setShowHint(false);
+    setShowClue(false);
   };
 
   const flip = () => {
@@ -79,12 +92,14 @@ const App = () => {
     setFlipped(false);
     setGuess("");
     setGuessStatus(null);
+    setShowHint(false);
+    setShowClue(false);
   };
 
   return (
     <div className="page">
       <h1 className="main-title">FlashCards</h1>
-      <h3>Build your vocabulary one flip at a time.</h3>
+      <h3 className="subtitle">Build your vocabulary one flip at a time.</h3>
       <Cards
         guess={guess}
         guessStatus={guessStatus}
@@ -102,6 +117,10 @@ const App = () => {
         shuffleArray={shuffleArray}
         counter={counter}
         max={max}
+        showHint={showHint}
+        onShowClue={onShowClue}
+        onShowHint={onShowHint}
+        showClue={showClue}
       />
     </div>
   );

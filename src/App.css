@@ -82,19 +82,19 @@
   max-height: 120px;
   object-fit: contain;
 }
-
+.difficulty {
+  margin: 0;
+  color: black;
+}
 .difficulty.easy {
   background-color: aqua;
-  color: black;
 }
 
 .difficulty.medium {
   background-color: orange;
-  color: black;
 }
 .difficulty.hard {
   background-color: red;
-  color: black;
 }
 .guess-section {
   width: 100%;
@@ -157,4 +157,23 @@
 
 .feedback.incorrect {
   color: #f44336;
+}
+
+.description {
+  margin: 0;
+}
+.hint {
+  color: #f0c040;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.clue {
+  color: #80c8ff;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.subtitle {
+  text-align: center;
 }
