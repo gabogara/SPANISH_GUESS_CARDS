@@ -13,6 +13,8 @@ const Cards = ({
   isLast,
   isIni,
   shuffleArray,
+  counter,
+  max,
 }) => {
   const formatWord = (word) => {
     return word.replace("-", " ").replace(/^\w/, (c) => c.toUpperCase());
@@ -20,6 +22,10 @@ const Cards = ({
 
   return (
     <div className="card-wrapper">
+      <p>
+        Current Streak: {counter} 
+        {max > 0 &&  <span> Longest Streak: {max}</span>}
+      </p>
       <p>Category: {formatWord(card.category)}</p>
       <p className={`difficulty ${card.difficulty}`}>
         Difficulty: {formatWord(card.difficulty)}
@@ -43,7 +49,6 @@ const Cards = ({
           </div>
         </div>
       </div>
-
       <div>
         <label htmlFor="guess-input">Your answer:</label>
         <form onSubmit={handleSubmit}>

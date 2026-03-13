@@ -5,6 +5,8 @@ import Cards from "./components/Cards";
 import "./App.css";
 
 const App = () => {
+  const [counter, setCounter] = useState(0);
+  const [max, setMax] = useState(0);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [guess, setGuess] = useState("");
@@ -18,11 +20,23 @@ const App = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!guess.trim()) return;
+    if (!guess.trim()) {
+      return;
+    }
     const correct =
       guess.trim().toLowerCase() === deck[index].answer.trim().toLowerCase();
     setGuessStatus(correct ? "correct" : "incorrect");
     setGuess("");
+    if (correct) {
+      const newCounter = counter + 1;
+      setCounter(newCounter);
+
+      if (newCounter > max) {
+        setMax(newCounter);
+      }
+    } else {
+      setCounter(0);
+    }
   };
 
   const onhandleChange = (evt) => {
@@ -86,6 +100,8 @@ const App = () => {
         isLast={isLast}
         isIni={isIni}
         shuffleArray={shuffleArray}
+        counter={counter}
+        max={max}
       />
     </div>
   );
