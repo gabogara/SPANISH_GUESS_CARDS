@@ -10,10 +10,10 @@ Time spent: **16** hours spent in total
 
 The following **required** functionality is completed:
 
-- [x] **The user can enter their guess into an input box *before* seeing the flipside of the card**
+- [x] **The user can enter their guess into an input box _before_ seeing the flipside of the card**
   - Application features a clearly labeled input box with a submit button where users can type in a guess
-  - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong 
-  -  Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
+  - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong
+  - Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
 - [x] **The user can navigate through an ordered list of cardss**
   - A forward/next button displayed on the card navigates to the next card in a set sequence when clicked
   - A previous/back button displayed on the card returns to the previous card in the set sequence when clicked
@@ -21,19 +21,18 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-
 - [x] Users can use a shuffle button to randomize the order of the cards
-  - Cards should remain in the same sequence (**NOT** randomized) unless the shuffle button is clicked 
+  - Cards should remain in the same sequence (**NOT** randomized) unless the shuffle button is clicked
   - Cards should change to a random sequence once the shuffle button is clicked
 - [x] A user’s answer may be counted as correct even when it is slightly different from the target answer
-  - Answers are considered correct even if they only partially match the answer on the card 
-  - Examples: ignoring uppercase/lowercase discrepancies, ignoring punctuation discrepancies. 
-- [X] Matching only for a particular part of the answer rather than the whole answer.
+  - Answers are considered correct even if they only partially match the answer on the card
+  - Examples: ignoring uppercase/lowercase discrepancies, ignoring punctuation discrepancies.
+- [x] Matching only for a particular part of the answer rather than the whole answer.
   - Answers must match the expected word or phrase (case-insensitive), but partial matches ARE NOT CURRENTLY SUPPORTED.
 - [x] A counter displays the user’s current and longest streak of correct responses
   - The current counter increments when a user guesses an answer correctly
   - The current counter resets to 0 when a user guesses an answer incorrectly
-  - A separate counter tracks the longest streak, updating if the value of the current streak counter exceeds the value of the longest streak counter 
+  - A separate counter tracks the longest streak, updating if the value of the current streak counter exceeds the value of the longest streak counter
 
 The following **additional** features are implemented:
 
@@ -47,7 +46,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://i.imgur.com/hj8ZexB.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/o8Ybx2o.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/)
 
