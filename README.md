@@ -2,7 +2,7 @@
 
 Submitted by: **Gabriel Restrepo**
 
-This web app: **This web app is a flashcard-based vocabulary practice tool designed to help users learn Spanish words through an interactive guessing game. Each card displays an English word or phrase along with an image, and users can type their guess in Spanish before revealing the answer on the back of the card. The app provides immediate feedback indicating whether the guess is correct or incorrect. Users can navigate through the cards using Previous and Next buttons, shuffle the deck to randomize the order, and track their performance with a current streak and longest streak counter. Cards are visually styled based on their category and difficulty level, making the learning experience more engaging and organized.**
+This web app: **This web app is a flashcard-based vocabulary practice tool designed to help users learn Spanish through an interactive guessing game. Each card shows an English word or phrase along with an image, and users must type their guess in Spanish before revealing the answer on the back of the card. The app provides immediate feedback for correct and incorrect answers, includes optional hints and clues to support learning, and allows users to navigate through the deck in order or shuffle the cards. It also tracks the user’s current and longest streak, while using category- and difficulty-based styling to create a more engaging learning experience.**
 
 Time spent: **16** hours spent in total
 
@@ -27,7 +27,9 @@ The following **optional** features are implemented:
   - Cards should change to a random sequence once the shuffle button is clicked
 - [x] A user’s answer may be counted as correct even when it is slightly different from the target answer
   - Answers are considered correct even if they only partially match the answer on the card 
-  - Examples: ignoring uppercase/lowercase discrepancies, ignoring punctuation discrepancies, matching only for a particular part of the answer rather than the whole answer
+  - Examples: ignoring uppercase/lowercase discrepancies, ignoring punctuation discrepancies. 
+- [X] Matching only for a particular part of the answer rather than the whole answer.
+  - Answers must match the expected word or phrase (case-insensitive), but partial matches ARE NOT CURRENTLY SUPPORTED.
 - [x] A counter displays the user’s current and longest streak of correct responses
   - The current counter increments when a user guesses an answer correctly
   - The current counter resets to 0 when a user guesses an answer incorrectly
@@ -35,19 +37,23 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Implemented a shuffle feature using the Fisher–Yates algorithm.
+- [x] Implemented a shuffle feature using the Fisher–Yates algorithm to randomize the order of flashcards.
+- [x] Added optional **Hint** and **Clue** buttons to help users guess the correct Spanish word before revealing the answer.
+- [x] Implemented a **streak tracker** that displays the current streak and the longest streak of correct answers.
+- [x] Added category-based styling and difficulty indicators for each flashcard.
+- [x] Included images on flashcards to provide visual context for vocabulary learning.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://i.imgur.com/rSEktOV.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/hj8ZexB.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/)
 
 ## Notes
 
-The most challenging part at the beginning was figuring out how to structure the components and what state was needed to manage the app’s behavior. This project helped me better understand how components communicate with each other and how to handle events when users click buttons. I also learned how to flip the cards by conditionally applying CSS classes using a ternary operator.
+The most challenging part of this project was managing the different pieces of state in the application. In many cases, adding a new state variable meant reconsidering how it interacted with the other existing states and adjusting the logic accordingly. This forced me to think more carefully about how state flows through the application and how different user actions can affect multiple parts of the UI at the same time.
 
 ## License
 
