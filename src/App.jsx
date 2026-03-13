@@ -9,15 +9,22 @@ const App = () => {
   const [flipped, setFlipped] = useState(false);
   const [guess, setGuess] = useState("");
   const [guessStatus, setGuessStatus] = useState(null);
+  const [isShuffled, setIsShuffled] = useState(false);
+  const [shuffledDeck, setShuffledDeck] = useState([]);
+
+  const deck = isShuffled ? shuffledDeck : FLASHCARDS;
+  const isLast = index === deck.length - 1;
+  const isIni = index === 0;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!guess.trim()) return;
     const correct =
-      guess.trim().toLowerCase() === FLASHCARDS[index].answer.trim().toLowerCase();
+      guess.trim().toLowerCase() === deck[index].answer.trim().toLowerCase();
     setGuessStatus(correct ? "correct" : "incorrect");
     setGuess("");
   };
+
   const onhandleChange = (evt) => {
     setGuess(evt.target.value);
   };
@@ -26,28 +33,38 @@ const App = () => {
     setFlipped(false);
     setGuess("");
     setGuessStatus(null);
-    setIndex((index) => (index + 1) % FLASHCARDS.length);
+    setIndex((index) => index + 1);
   };
 
   const prev = () => {
     setFlipped(false);
     setGuess("");
     setGuessStatus(null);
-    setIndex((index) => (index - 1 + FLASHCARDS.length) % FLASHCARDS.length);
+    setIndex((index) => index - 1);
   };
 
   const flip = () => {
     setFlipped(!flipped);
   };
 
-  const random = () => {
+  const shuffleArray = () => {
+    const shuffled = [...FLASHCARDS];
+    let i = shuffled.length - 1;
+    let temp;
+    while (i > 0) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      temp = shuffled[randomIndex];
+      shuffled[randomIndex] = shuffled[i];
+      shuffled[i] = temp;
+      i--;
+    }
+    console.log(shuffled);
+    setShuffledDeck(shuffled);
+    setIsShuffled(true);
+    setIndex(0);
     setFlipped(false);
     setGuess("");
-    let newIndex;
-    do {
-      newIndex = Math.floor(Math.random() * FLASHCARDS.length);
-    } while (newIndex === index);
-    setIndex(newIndex);
+    setGuessStatus(null);
   };
 
   return (
@@ -56,19 +73,19 @@ const App = () => {
       <h3>Build your vocabulary one flip at a time.</h3>
       <Cards
         guess={guess}
-        setGuess={setGuess}
         guessStatus={guessStatus}
-        setGuessStatus={setGuessStatus}
         onhandleChange={onhandleChange}
         handleSubmit={handleSubmit}
-        card={FLASHCARDS[index]}
+        card={deck[index]}
         onNext={next}
         onPrev={prev}
-        onRandom={random}
         index={index}
         onFlip={flip}
         flipped={flipped}
-        total={FLASHCARDS.length}
+        total={deck.length}
+        isLast={isLast}
+        isIni={isIni}
+        shuffleArray={shuffleArray}
       />
     </div>
   );

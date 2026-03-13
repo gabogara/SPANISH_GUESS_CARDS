@@ -3,7 +3,6 @@ const Cards = ({
   guess,
   guessStatus,
   flipped,
-  onRandom,
   handleSubmit,
   onhandleChange,
   onNext,
@@ -11,6 +10,9 @@ const Cards = ({
   onFlip,
   index,
   total,
+  isLast,
+  isIni,
+  shuffleArray,
 }) => {
   const formatWord = (word) => {
     return word.replace("-", " ").replace(/^\w/, (c) => c.toUpperCase());
@@ -63,9 +65,13 @@ const Cards = ({
         )}
       </div>
       <div className="nav">
-        <button onClick={onPrev}> Previous</button>
-        <button onClick={onRandom}>Random</button>
-        <button onClick={onNext}>Next</button>
+        <button onClick={onPrev} disabled={isIni}>
+          Previous
+        </button>
+        <button onClick={onNext} disabled={isLast}>
+          Next
+        </button>
+        <button onClick={shuffleArray}>Shuffle Cards</button>
       </div>
     </div>
   );
