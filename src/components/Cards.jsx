@@ -23,8 +23,8 @@ const Cards = ({
   return (
     <div className="card-wrapper">
       <p>
-        Current Streak: {counter} 
-        {max > 0 &&  <span> Longest Streak: {max}</span>}
+        Current Streak: {counter}
+        {max > 0 && <span> Longest Streak: {max}</span>}
       </p>
       <p>Category: {formatWord(card.category)}</p>
       <p className={`difficulty ${card.difficulty}`}>
@@ -49,9 +49,9 @@ const Cards = ({
           </div>
         </div>
       </div>
-      <div>
+      <div className="guess-section">
         <label htmlFor="guess-input">Your answer:</label>
-        <form onSubmit={handleSubmit}>
+        <form className="guess-form" onSubmit={handleSubmit}>
           <input
             id="guess-input"
             type="text"
